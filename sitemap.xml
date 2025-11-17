@@ -155,7 +155,34 @@
   </url>
   
   <url>
+    <loc>https://web.reffish.cn/box/nav/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://web.reffish.cn/tags/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://web.reffish.cn/life/music/index.html</loc>
+    
+    <lastmod>2023-03-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://web.reffish.cn/personal/bb/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -191,24 +218,6 @@
   </url>
   
   <url>
-    <loc>https://web.reffish.cn/box/nav/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://web.reffish.cn/social/link/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://web.reffish.cn/personal/about/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
@@ -218,16 +227,7 @@
   </url>
   
   <url>
-    <loc>https://web.reffish.cn/life/music/index.html</loc>
-    
-    <lastmod>2023-03-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://web.reffish.cn/personal/bb/index.html</loc>
+    <loc>https://web.reffish.cn/social/link/index.html</loc>
     
     <lastmod>2023-03-22</lastmod>
     
@@ -268,13 +268,6 @@
   </url>
   
   <url>
-    <loc>https://web.reffish.cn/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</loc>
-    <lastmod>2025-11-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://web.reffish.cn/tags/%E5%85%BB%E7%94%9F/</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -290,6 +283,13 @@
   
   <url>
     <loc>https://web.reffish.cn/tags/%E4%BD%9C%E4%B8%BA%E6%97%A5%E8%AE%B0%E5%8A%A0%E5%AF%86/</loc>
+    <lastmod>2025-11-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://web.reffish.cn/tags/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</loc>
     <lastmod>2025-11-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

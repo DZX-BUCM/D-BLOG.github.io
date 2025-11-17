@@ -31,33 +31,6 @@
     
     
     <entry>
-      <title>图床教程</title>
-      <link href="/posts/6.html"/>
-      <url>/posts/6.html</url>
-      
-        <content type="html"><![CDATA[<p>推荐使用picgo搭建自己的图床</p><h2 id="3-PicGo结合Markdown实时上传图片">3.PicGo结合Markdown实时上传图片</h2><ul><li><p>Picgo究竟是什么？这是一个开源软件，开源地址：<a href="https://github.com/Molunerfinn/PicGo">Molunerfinn/PicGo</a></p></li><li><p>引用项目的介绍：这是一个用于快速上传图片并获取图片 URL 链接的工具，关键是他可以与Typora配套一起使用，在粘贴图片的同时上传图片，十分方便！</p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image.webp" alt="img"></p></li><li><p>下载软件后直接一路安装下去就行，建议装在非C盘的任意一个盘。</p></li></ul><h3 id="3-1-Github图床">3.1 Github图床</h3><ol><li><p>进入软件之后，一路到设置里面取消勾选其他图床，只留下Github图床一项，因为我们的现在要弄Github图床。</p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-1.webp" alt="img"></p></li><li><p>然后到Github新建一个仓库，创建仓库的教程前面有讲，这里就不赘述了，<code>仓库名字</code>和<code>描述</code>随意，最重要的是权限一定要选<code>public</code>，这样你的图片才可以随时随地访问到。在图床设置的Github配置处，按照下图填入对应的信息：</p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-2.webp" alt="img"></p><p>自定义域名的格式为：<code>https://cdn.staticaly.com/gh/用户名/仓库名@main</code>，比如我的就是<code>https://cdn.staticaly.com/gh/fomalhaut1998/markdown_pic@main</code>，对应的<code>用户名</code>和<code>仓库名</code>记住要换成自己名字，不能有空格！！！</p><p>Token的获取方式为：<code>右上角头像</code>-&gt;<code>Setting</code>-&gt;<code>左边栏Developer Settings</code>-&gt;<code>左栏Personal access tokens</code>-&gt;<code>左栏tokens(classic)</code></p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-3.webp" alt="img"></p><p>创建Token时，<code>Note</code>随意；<code>Exporation</code>选<code>No expiration</code>，<code>Select scopes</code>必须把<code>repo</code>这一项勾上，然后点击生成就行</p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-4.webp" alt="img"></p><p>这个时候必须马上复制出现的token，不然后面就看不到了，复制了填进去刚刚的Token选项，随后点击确定保存</p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-5.webp" alt="img"></p></li><li><p>随便拖拽一张图片进来上传区域这里，应该就可以上传成功，随后把生成的链接复制就可以，此时打开仓库可以发现图片上传到了指定的文件夹。注意：每个仓库大小限制是1G！！！</p></li></ol><p><a href="https://tuchuang.voooe.cn/images/2022/12/30/image-6.webp"><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-6.webp" alt="img"></a></p><h3 id="3-2-Bilibili图床">3.2 Bilibili图床</h3><ul><li>由于这个图床用在博客里存在跨域问题，因此不再推荐使用了，开源地址：<a href="https://github.com/xlzy520/typora-plugin-bilibili">typora-plugin-bilibili</a></li><li>如需了解使用教程，见视频教程<a href="https://www.bilibili.com/video/BV1ZG411N7LS/">第12期：免费图床综合教程（二）</a></li></ul><h3 id="3-3-CF图床">3.3 CF图床</h3><h2 id="Cloudflare-R2-配置流程">Cloudflare R2 配置流程</h2><h3 id="1、注册一个CF账号">1、注册一个CF账号</h3><p>进入 <a href="https://dash.cloudflare.com/">https://dash.cloudflare.com/</a> 进行注册。</p><h3 id="2、开通-Cloudflare-R2-服务">2、开通 Cloudflare R2 服务</h3><p>进入 CF 仪表盘，找到侧边栏的 R2 并进入。</p><blockquote><p>R2 是一项带有免费额度的付费服务，因此需要进行绑定支付方式。一般支持银联的信用卡均可使用。</p></blockquote><p>绑定完后就可以看到如下界面：</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250214110048793.png" alt="image-20250214110048793"></p><h3 id="3、创建存储桶">3、创建存储桶</h3><p>在创建页面中，你可以选择储存桶位置并选择存储类型：</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250214134108861.png" alt="image-20250214134108861"></p><p>对于位置你可以指定一个距离你源站或者常链接的CDN位置进行选择，理论上，距离越短访问延迟越低，默认跟据你当前链接CF的IP地址进行选择。 但是CF似乎会将数据同步到全球数据中心。</p><p>对于图床的应用场景，我们应该选择 “标准” 类型。因为图床会频繁的请求某张图片，而 “不频繁访问” 的 A/B 类操作价格都是相当昂贵的。</p><h3 id="4、开启公开访问">4、开启公开访问</h3><p>默认情况下，R2存储桶是不支持通过域名直接外部访问的，仅可通过R2 API或者S3兼容API进行访问。而我们建立图床则需要公开通过域名访问。因此在创建完存储桶后，我们可以在存储同内打开相关选项。</p><p>点击我们刚刚创建完的存储桶：</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250214134257826.png" alt="image-20250214134257826"></p><p>在公开访问开启。请注意，如果你想要配置自己的域名，必须先将自己的域名先接入CF中。CF提供的<code>R2.dev</code> 子域具有访问速率限制（虽然我没有测试出来），非常强烈建议你绑定自己的域名！</p><h3 id="5、配置-API-访问权限">5、配置 API 访问权限</h3><p>回到R2界面，点击 “管理R2 API令牌”</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250214134537223.png" alt="image-20250214134537223"></p><p>创建一个新令牌，仅适用于你希望配置的存储桶或者全部存储桶上（取决于你的具体需要），令牌名称随意，权限选择读和写。</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134521574.png" alt="image-20250215134521574"></p><p>接下来会弹出你配置的相关API参数，请不要关闭这个页面，后续无法通过面板找回密钥</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134609143.png" alt="image-20250215134609143"></p><p>从这里开始，CF中的配置就已经完成了。</p><h2 id="PicGo的配置">PicGo的配置</h2><h3 id="1、下载并安装">1、下载并安装</h3><p>自行解决，官网 <a href="https://picgo.github.io/PicGo-Doc/zh/guide/getting-started.html">Wiki</a></p><h3 id="2、S3插件安装">2、S3插件安装</h3><p>进入插件设置，输入<code>S3</code>后点击安装即可</p><p>提示</p><p>如果输入<code>S3</code>或其他插件名称后多次没有结果，可以采取手动安装的方式。参考 <a href="https://blog.wangms.org/ops/07_PicGo%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6.html">PicGo手动安装插件</a></p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134749253.png" alt="image-20250215134749253"></p><h3 id="3、插件配置">3、插件配置</h3><p>其中需要注意的几个点：</p><ul><li>应用密钥ID就是CF API中的<strong>访问密钥ID</strong>；</li><li>应用密钥就是CF API中的<strong>机密访问密钥</strong>；</li><li>权限必须填写private；</li><li>地区选择auto（必须为全小写），或者R2文档中提及的具体位置；</li><li>ACL访问控制列表会默认为权限中的配置。</li></ul><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134832235.png" alt="image-20250215134832235"></p><p>设置完成后一定要点击下方保存</p><h3 id="4、Picgo-使用方法">4、Picgo 使用方法</h3><p>接着你就可以在上传区选择图片上传或者直接通过剪贴板进行上传</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134911990.png" alt="image-20250215134911990"></p><p>如果你的配置无误，那么相册中就可以看到你上传的图片了：</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134942645.png" alt="image-20250215134942645"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 技术 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 技术 </tag>
-            
-            <tag> 图像处理 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>黑茶</title>
       <link href="/posts/4.html"/>
       <url>/posts/4.html</url>
@@ -77,6 +50,33 @@
             <tag> 养生 </tag>
             
             <tag> 茶 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>图床教程</title>
+      <link href="/posts/6.html"/>
+      <url>/posts/6.html</url>
+      
+        <content type="html"><![CDATA[<p>推荐使用picgo搭建自己的图床</p><h2 id="3-PicGo结合Markdown实时上传图片">3.PicGo结合Markdown实时上传图片</h2><ul><li><p>Picgo究竟是什么？这是一个开源软件，开源地址：<a href="https://github.com/Molunerfinn/PicGo">Molunerfinn/PicGo</a></p></li><li><p>引用项目的介绍：这是一个用于快速上传图片并获取图片 URL 链接的工具，关键是他可以与Typora配套一起使用，在粘贴图片的同时上传图片，十分方便！</p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image.webp" alt="img"></p></li><li><p>下载软件后直接一路安装下去就行，建议装在非C盘的任意一个盘。</p></li></ul><h3 id="3-1-Github图床">3.1 Github图床</h3><ol><li><p>进入软件之后，一路到设置里面取消勾选其他图床，只留下Github图床一项，因为我们的现在要弄Github图床。</p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-1.webp" alt="img"></p></li><li><p>然后到Github新建一个仓库，创建仓库的教程前面有讲，这里就不赘述了，<code>仓库名字</code>和<code>描述</code>随意，最重要的是权限一定要选<code>public</code>，这样你的图片才可以随时随地访问到。在图床设置的Github配置处，按照下图填入对应的信息：</p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-2.webp" alt="img"></p><p>自定义域名的格式为：<code>https://cdn.staticaly.com/gh/用户名/仓库名@main</code>，比如我的就是<code>https://cdn.staticaly.com/gh/fomalhaut1998/markdown_pic@main</code>，对应的<code>用户名</code>和<code>仓库名</code>记住要换成自己名字，不能有空格！！！</p><p>Token的获取方式为：<code>右上角头像</code>-&gt;<code>Setting</code>-&gt;<code>左边栏Developer Settings</code>-&gt;<code>左栏Personal access tokens</code>-&gt;<code>左栏tokens(classic)</code></p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-3.webp" alt="img"></p><p>创建Token时，<code>Note</code>随意；<code>Exporation</code>选<code>No expiration</code>，<code>Select scopes</code>必须把<code>repo</code>这一项勾上，然后点击生成就行</p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-4.webp" alt="img"></p><p>这个时候必须马上复制出现的token，不然后面就看不到了，复制了填进去刚刚的Token选项，随后点击确定保存</p><p><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-5.webp" alt="img"></p></li><li><p>随便拖拽一张图片进来上传区域这里，应该就可以上传成功，随后把生成的链接复制就可以，此时打开仓库可以发现图片上传到了指定的文件夹。注意：每个仓库大小限制是1G！！！</p></li></ol><p><a href="https://tuchuang.voooe.cn/images/2022/12/30/image-6.webp"><img src="https://tuchuang.voooe.cn/images/2022/12/30/image-6.webp" alt="img"></a></p><h3 id="3-2-Bilibili图床">3.2 Bilibili图床</h3><ul><li>由于这个图床用在博客里存在跨域问题，因此不再推荐使用了，开源地址：<a href="https://github.com/xlzy520/typora-plugin-bilibili">typora-plugin-bilibili</a></li><li>如需了解使用教程，见视频教程<a href="https://www.bilibili.com/video/BV1ZG411N7LS/">第12期：免费图床综合教程（二）</a></li></ul><h3 id="3-3-CF图床">3.3 CF图床</h3><h2 id="Cloudflare-R2-配置流程">Cloudflare R2 配置流程</h2><h3 id="1、注册一个CF账号">1、注册一个CF账号</h3><p>进入 <a href="https://dash.cloudflare.com/">https://dash.cloudflare.com/</a> 进行注册。</p><h3 id="2、开通-Cloudflare-R2-服务">2、开通 Cloudflare R2 服务</h3><p>进入 CF 仪表盘，找到侧边栏的 R2 并进入。</p><blockquote><p>R2 是一项带有免费额度的付费服务，因此需要进行绑定支付方式。一般支持银联的信用卡均可使用。</p></blockquote><p>绑定完后就可以看到如下界面：</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250214110048793.png" alt="image-20250214110048793"></p><h3 id="3、创建存储桶">3、创建存储桶</h3><p>在创建页面中，你可以选择储存桶位置并选择存储类型：</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250214134108861.png" alt="image-20250214134108861"></p><p>对于位置你可以指定一个距离你源站或者常链接的CDN位置进行选择，理论上，距离越短访问延迟越低，默认跟据你当前链接CF的IP地址进行选择。 但是CF似乎会将数据同步到全球数据中心。</p><p>对于图床的应用场景，我们应该选择 “标准” 类型。因为图床会频繁的请求某张图片，而 “不频繁访问” 的 A/B 类操作价格都是相当昂贵的。</p><h3 id="4、开启公开访问">4、开启公开访问</h3><p>默认情况下，R2存储桶是不支持通过域名直接外部访问的，仅可通过R2 API或者S3兼容API进行访问。而我们建立图床则需要公开通过域名访问。因此在创建完存储桶后，我们可以在存储同内打开相关选项。</p><p>点击我们刚刚创建完的存储桶：</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250214134257826.png" alt="image-20250214134257826"></p><p>在公开访问开启。请注意，如果你想要配置自己的域名，必须先将自己的域名先接入CF中。CF提供的<code>R2.dev</code> 子域具有访问速率限制（虽然我没有测试出来），非常强烈建议你绑定自己的域名！</p><h3 id="5、配置-API-访问权限">5、配置 API 访问权限</h3><p>回到R2界面，点击 “管理R2 API令牌”</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250214134537223.png" alt="image-20250214134537223"></p><p>创建一个新令牌，仅适用于你希望配置的存储桶或者全部存储桶上（取决于你的具体需要），令牌名称随意，权限选择读和写。</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134521574.png" alt="image-20250215134521574"></p><p>接下来会弹出你配置的相关API参数，请不要关闭这个页面，后续无法通过面板找回密钥</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134609143.png" alt="image-20250215134609143"></p><p>从这里开始，CF中的配置就已经完成了。</p><h2 id="PicGo的配置">PicGo的配置</h2><h3 id="1、下载并安装">1、下载并安装</h3><p>自行解决，官网 <a href="https://picgo.github.io/PicGo-Doc/zh/guide/getting-started.html">Wiki</a></p><h3 id="2、S3插件安装">2、S3插件安装</h3><p>进入插件设置，输入<code>S3</code>后点击安装即可</p><p>提示</p><p>如果输入<code>S3</code>或其他插件名称后多次没有结果，可以采取手动安装的方式。参考 <a href="https://blog.wangms.org/ops/07_PicGo%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85%E6%8F%92%E4%BB%B6.html">PicGo手动安装插件</a></p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134749253.png" alt="image-20250215134749253"></p><h3 id="3、插件配置">3、插件配置</h3><p>其中需要注意的几个点：</p><ul><li>应用密钥ID就是CF API中的<strong>访问密钥ID</strong>；</li><li>应用密钥就是CF API中的<strong>机密访问密钥</strong>；</li><li>权限必须填写private；</li><li>地区选择auto（必须为全小写），或者R2文档中提及的具体位置；</li><li>ACL访问控制列表会默认为权限中的配置。</li></ul><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134832235.png" alt="image-20250215134832235"></p><p>设置完成后一定要点击下方保存</p><h3 id="4、Picgo-使用方法">4、Picgo 使用方法</h3><p>接着你就可以在上传区选择图片上传或者直接通过剪贴板进行上传</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134911990.png" alt="image-20250215134911990"></p><p>如果你的配置无误，那么相册中就可以看到你上传的图片了：</p><p><img src="https://pub-b03ca977d5f94fa9a669bf6f295ab98a.r2.dev/PicGo/image-20250215134942645.png" alt="image-20250215134942645"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 技术 </tag>
+            
+            <tag> 图像处理 </tag>
             
         </tags>
       
