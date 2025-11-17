@@ -6,7 +6,7 @@
   <link href="https://web.reffish.cn/atom.xml" rel="self"/>
   
   <link href="https://web.reffish.cn/"/>
-  <updated>2025-02-14T02:41:22.000Z</updated>
+  <updated>2025-11-17T07:30:19.949Z</updated>
   <id>https://web.reffish.cn/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>0基础的建站流程</title>
+    <link href="https://web.reffish.cn/posts/4c5bbf08.html"/>
+    <id>https://web.reffish.cn/posts/4c5bbf08.html</id>
+    <published>2025-02-17T07:00:00.000Z</published>
+    <updated>2025-11-17T07:30:19.949Z</updated>
+    
+    <content type="html"><![CDATA[<h1>🎯 <strong>最终效果（你现在已经实现的）</strong></h1><ul><li>✔ 本地能写文章</li><li>✔ Hexo 博客主题（Keep/Acrylic 等）已配置</li><li>✔ 支持密码文章、字数统计、右键模式等功能</li><li>✔ GitHub 仓库自动接收更新</li><li>✔ Vercel 自动部署</li><li>✔ 自定义域名（<a href="http://reffish.cn">reffish.cn</a>）已绑定</li><li>✔ 访问网址自动走 Vercel CDN 加速</li></ul><hr><hr><h1>🧭 <strong>1. 安装开发环境（仅需要一次）</strong></h1><h3 id="①-安装-Node-js（LTS-版本）"><strong>① 安装 Node.js（LTS 版本）</strong></h3><blockquote><p><a href="https://nodejs.org/">https://nodejs.org/</a></p></blockquote><p>安装完验证：</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure><h3 id="②-安装-Git"><strong>② 安装 Git</strong></h3><blockquote><p><a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></p></blockquote><p>安装后设置用户名邮箱：</p><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.name</span> <span class="string">&quot;你的名字&quot;</span></span><br><span class="line">git config <span class="attr">--global</span> user<span class="selector-class">.email</span> <span class="string">&quot;你的邮箱&quot;</span></span><br></pre></td></tr></table></figure><h1>🏗️ <strong>2. 创建 Hexo 博客</strong></h1><h3 id="①-新建文件夹并进入"><strong>① 新建文件夹并进入</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> blog</span><br><span class="line"><span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure><h3 id="②-安装-Hexo"><strong>② 安装 Hexo</strong></h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> -g hexo-cli</span><br><span class="line">hexo init</span><br><span class="line">npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure><h3 id="③-启动本地预览"><strong>③ 启动本地预览</strong></h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure><p>浏览器访问：</p><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">http:</span><span class="comment">//localhost:4000</span></span><br></pre></td></tr></table></figure><hr><hr><h1>🎨 <strong>3. 安装主题（以 Keep 为例）</strong></h1><p>进入 blog 根目录：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure><h3 id="①-下载主题"><strong>① 下载主题</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/XPoet/hexo-theme-keep.git themes/keep</span><br></pre></td></tr></table></figure><h3 id="②-修改站点配置文件-config-yml"><strong>② 修改站点配置文件 _config.yml</strong></h3><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">theme:</span> <span class="meta">keep</span></span><br></pre></td></tr></table></figure><h3 id="③-安装主题依赖"><strong>③ 安装主题依赖</strong></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> themes/keep</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><hr><hr><h1>🎁 <strong>4. 安装各种增强插件</strong></h1><p>进入博客根目录：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> blog</span><br></pre></td></tr></table></figure><h3 id="推荐插件（你当前使用的）">推荐插件（你当前使用的）</h3><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install </span>hexo-deployer-git --save</span><br><span class="line">npm <span class="keyword">install </span>hexo-<span class="keyword">blog-encrypt </span>--save</span><br><span class="line">npm <span class="keyword">install </span>hexo-wordcount --save</span><br><span class="line">npm <span class="keyword">install </span>hexo-generator-search --save</span><br><span class="line">npm <span class="keyword">install </span>hexo-generator-<span class="keyword">baidu-sitemap </span>--save</span><br><span class="line">npm <span class="keyword">install </span>hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure><hr><hr><h1>🛠 <strong>5. 配置 Hexo（你的博客主配置）</strong></h1><p>编辑根目录 <code>_config.yml</code>，重点修改：</p><h3 id="①-站点信息"><strong>① 站点信息</strong></h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">title:</span> 你的博客名</span><br><span class="line"><span class="symbol">subtitle:</span> 描述</span><br><span class="line"><span class="symbol">url:</span> https:<span class="comment">//你的域名.com</span></span><br></pre></td></tr></table></figure><h3 id="②-部署到-GitHub"><strong>② 部署到 GitHub</strong></h3><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">deploy:</span></span><br><span class="line"><span class="symbol">  type:</span> git</span><br><span class="line"><span class="symbol">  repo:</span> git@github.com:你的用户名/你的仓库名.git</span><br><span class="line"><span class="symbol">  branch:</span> main</span><br></pre></td></tr></table></figure><hr><hr><h1>📝 <strong>6. 写文章（本地）</strong></h1><p>新建文章：</p><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo <span class="built_in">new</span> <span class="built_in">post</span> <span class="string">&quot;文章标题&quot;</span></span><br></pre></td></tr></table></figure><p>更新本地后预览：</p><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">hexo s</span></span><br></pre></td></tr></table></figure><hr><hr><h1>🚀 <strong>7. 推送到 GitHub</strong></h1><p>每次更新：</p><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo <span class="selector-tag">g</span></span><br><span class="line">hexo d</span><br></pre></td></tr></table></figure><p>推送完成后，GitHub 仓库会更新。</p><hr><hr><h1>🌐 <strong>8. Vercel 自动部署（最重要）</strong></h1><h3 id="①-打开-Vercel"><strong>① 打开 Vercel</strong></h3><blockquote><p><a href="https://vercel.com">https://vercel.com</a></p></blockquote><h3 id="②-选择-“Import-GitHub-project”"><strong>② 选择 “Import GitHub project”</strong></h3><p>选择仓库：<br><code>D-BLOG.github.io</code> 或你设置的博客仓库</p><h3 id="③-设置框架：Other"><strong>③ 设置框架：Other</strong></h3><h3 id="④-Build-配置"><strong>④ Build 配置</strong></h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Build <span class="keyword">Command</span>：hexo g</span><br><span class="line">Output Directory：public</span><br><span class="line"><span class="keyword">Install</span> <span class="keyword">Command</span>：npm <span class="keyword">install</span></span><br></pre></td></tr></table></figure><h3 id="⑤-一键部署"><strong>⑤ 一键部署</strong></h3><p>完成后即可访问：</p><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">https:</span><span class="comment">//你的项目名.vercel.app</span></span><br></pre></td></tr></table></figure><hr><hr><h1>🌍 <strong>9. 绑定阿里云域名 <a href="http://reffish.cn">reffish.cn</a></strong></h1><h3 id="①-在-Vercel-→-Domains-添加域名"><strong>① 在 Vercel → Domains 添加域名</strong></h3><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ref</span>fish.cn</span><br><span class="line">www.<span class="built_in">ref</span>fish.cn</span><br></pre></td></tr></table></figure><p>Vercel 会生成提示值，例如：</p><table><thead><tr><th>类型</th><th>名称</th><th>值</th></tr></thead><tbody><tr><td>A</td><td>@</td><td>216.198.79.1</td></tr><tr><td>CNAME</td><td>www</td><td>f615b908c2cd…</td></tr></tbody></table><hr><h3 id="②-去阿里云-DNS-添加记录"><strong>② 去阿里云 DNS 添加记录</strong></h3><p>进入：<br>阿里云 → 域名 → DNS解析</p><p>添加：</p><h4 id="①-根域名解析">① 根域名解析</h4><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">记录类型：<span class="keyword">A</span></span><br><span class="line">主机记录：@</span><br><span class="line">记录值：<span class="number">216.198.79.1</span></span><br><span class="line">TTL：<span class="number">600</span></span><br></pre></td></tr></table></figure><h4 id="②-www-解析">② www 解析</h4><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">记录类型：<span class="keyword">CNAME</span></span><br><span class="line">主机记录：www</span><br><span class="line">记录值：Vercel 给你的 <span class="keyword">CNAME</span></span><br><span class="line">TTL：<span class="number">600</span></span><br></pre></td></tr></table></figure><hr><h3 id="③-回-Vercel-点-Refresh-直到变绿"><strong>③ 回 Vercel 点 Refresh 直到变绿</strong></h3><hr><hr><h1>🎉 <strong>10. 最终访问网址</strong></h1><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">https:</span><span class="comment">//reffish.cn</span></span><br></pre></td></tr></table></figure><p>已经走 Vercel 全球 CDN，加速 + HTTPS 自动开启。</p><hr><hr><h1>📦 <strong>完整流程总结（最简版）</strong></h1><table><thead><tr><th>阶段</th><th>操作</th></tr></thead><tbody><tr><td>环境安装</td><td>Node.js + Git</td></tr><tr><td>初始化</td><td>hexo init</td></tr><tr><td>安装主题</td><td>Keep / Acylic</td></tr><tr><td>安装插件</td><td>各种功能增强</td></tr><tr><td>配置博客</td><td>修改 <code>_config.yml</code></td></tr><tr><td>写文章</td><td>hexo new</td></tr><tr><td>构建部署</td><td>hexo g &amp;&amp; hexo d</td></tr><tr><td>上传 GitHub</td><td>自动存储博客内容</td></tr><tr><td>Vercel 自动部署</td><td>绑定 GitHub 仓库</td></tr><tr><td>域名绑定</td><td>阿里云 DNS + Vercel</td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1&gt;🎯 &lt;strong&gt;最终效果（你现在已经实现的）&lt;/strong&gt;&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;✔ 本地能写文章&lt;/li&gt;
+&lt;li&gt;✔ Hexo 博客主题（Keep/Acrylic 等）已配置&lt;/li&gt;
+&lt;li&gt;✔ 支持密码文章、字数统计、右键模式等功能&lt;/li&gt;
+&lt;l</summary>
+      
+    
+    
+    
+    <category term="技术" scheme="https://web.reffish.cn/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="技术" scheme="https://web.reffish.cn/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>折腾项目的笔记</title>
@@ -38,9 +67,9 @@
     <category term="技术" scheme="https://web.reffish.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="编程" scheme="https://web.reffish.cn/tags/%E7%BC%96%E7%A8%8B/"/>
-    
     <category term="技术" scheme="https://web.reffish.cn/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="编程" scheme="https://web.reffish.cn/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -160,9 +189,9 @@
     <category term="技术" scheme="https://web.reffish.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="编程" scheme="https://web.reffish.cn/tags/%E7%BC%96%E7%A8%8B/"/>
-    
     <category term="技术" scheme="https://web.reffish.cn/tags/%E6%8A%80%E6%9C%AF/"/>
+    
+    <category term="编程" scheme="https://web.reffish.cn/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
@@ -189,28 +218,9 @@
     <category term="技术" scheme="https://web.reffish.cn/categories/%E6%8A%80%E6%9C%AF/"/>
     
     
-    <category term="编程" scheme="https://web.reffish.cn/tags/%E7%BC%96%E7%A8%8B/"/>
-    
     <category term="技术" scheme="https://web.reffish.cn/tags/%E6%8A%80%E6%9C%AF/"/>
     
-  </entry>
-  
-  <entry>
-    <title>文章效果测试</title>
-    <link href="https://web.reffish.cn/posts/83b42d47.html"/>
-    <id>https://web.reffish.cn/posts/83b42d47.html</id>
-    <published>2016-03-30T13:12:21.000Z</published>
-    <updated>2025-02-01T03:08:54.000Z</updated>
-    
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="抱歉, 这个密码似乎有些问题, 请再试试." data-whm="抱歉, 这个文章不能被校验, 不过您还是能看看解密后的内容.">  <script id="hbeData" type="hbeData" data-hmacdigest="a49c2ea1d4309c1b908967d557fdeae5e919a751030988a6edd5f5bf01b22ff0">4630436162ade97ba2718b7d0c4b3b63cbf22708173a6d59f69c642e7d695da88055fe0192a7b9037c3e221d66ab900b24fc6e04439f4c639b55b44a97bb24dc</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-xray">      <input class="hbe hbe-input-field hbe-input-field-xray" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-xray" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-xray">请输入密码，谢谢.</span>      </label>      <svg class="hbe hbe-graphic hbe-graphic-xray" width="300%" height="100%" viewBox="0 0 1200 60" preserveAspectRatio="none">        <path d="M0,56.5c0,0,298.666,0,399.333,0C448.336,56.5,513.994,46,597,46c77.327,0,135,10.5,200.999,10.5c95.996,0,402.001,0,402.001,0"></path>        <path d="M0,2.5c0,0,298.666,0,399.333,0C448.336,2.5,513.994,13,597,13c77.327,0,135-10.5,200.999-10.5c95.996,0,402.001,0,402.001,0"></path>      </svg>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-    
-    
-    <summary type="html">需要对暗号哦.</summary>
-    
-    
-    
-    
-    <category term="作为日记加密" scheme="https://web.reffish.cn/tags/%E4%BD%9C%E4%B8%BA%E6%97%A5%E8%AE%B0%E5%8A%A0%E5%AF%86/"/>
+    <category term="编程" scheme="https://web.reffish.cn/tags/%E7%BC%96%E7%A8%8B/"/>
     
   </entry>
   
