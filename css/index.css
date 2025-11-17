@@ -1509,12 +1509,6 @@ img:not([src]) {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
 }
-img[data-lazy-src]:not(.loaded) {
-  filter: blur(8px) brightness(1);
-}
-img[data-lazy-src].error {
-  filter: none;
-}
 .img-alt {
   margin: -10px 0 10px;
   color: #858585;
@@ -6227,7 +6221,7 @@ blockquote.pullquote.right {
   filter: brightness(0.8);
 }
 [data-theme='dark'] img {
-  filter: blur(0) brightness(0.8);
+  filter: brightness(0.8);
 }
 [data-theme='dark'] #aside-content .aside-list > .aside-list-item:not(:last-child) {
   border-bottom: 1px dashed rgba(255,255,255,0.1);
@@ -7690,13 +7684,13 @@ button#go-up:hover #percent {
 
 /* 个人信息卡片背景图 */
 [data-theme="light"] #aside-content > .card-widget.card-info {
-  background-image: url(https://tuchuang.voooe.cn/images/2023/02/28/springBg.png);
+  background-image: url(https://youke1.picui.cn/s1/2025/11/15/6918228f1ce0e.png);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
 }
 [data-theme="dark"] #aside-content > .card-widget.card-info {
-  background-image: url(https://tuchuang.voooe.cn/images/2023/02/28/aurora.webp);
+  background-image: url(https://youke1.picui.cn/s1/2025/11/15/6918228f1ce0e.png);
   background-repeat: no-repeat;
   background-attachment: inherit;
   background-size: 100%;
@@ -7762,7 +7756,7 @@ input#pic-link {
 
 /* heo 加载动画头像 */
 .loading-img {
-  background: url(https://tuchuang.voooe.cn/images/2023/01/02/avatar.webp)
+  background: url(https://youke1.picui.cn/s1/2025/11/15/6918228f1ce0e.png)
     no-repeat center center;
   background-size: cover;
 }
@@ -9197,7 +9191,7 @@ figure.highlight pre .deletion {
   padding: 1rem;
   position: relative;
   border-radius: 12px;
-  background-image: url(https://tuchuang.voooe.cn/images/2023/01/02/tunian.webp);
+  background-image: url(https://youke1.picui.cn/s1/2025/11/15/6918228f1ce0e.png);
   background-size: cover;
   background-position: center;
 }
